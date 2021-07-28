@@ -36,7 +36,7 @@ router.delete('/api/users/delete/:userId', async (req, res) => {
   }
 });
 
-// upd user
+// update user
 router.put('/api/users/update/:userId', async (req, res) => {
   const userId = req.params.userId;
   const updData = req.body.updData;
