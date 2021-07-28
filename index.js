@@ -22,7 +22,7 @@ mongoose
   .catch((err) => console.error(err.message));
 
 //routes
-// const productServiceRoutes = require('./server/routes/productServiceRoutes');
-// app.use('/', productServiceRoutes);
+const usersRoutes = require('./server/routes/usersRoutes');
+app.use('/', usersRoutes);
 
 app.listen(PORT, console.log(`back end online on port ${PORT}`));

@@ -1,5 +1,6 @@
 import './App.css';
 import React, { Component } from 'react';
+import { addNewUser } from './utils/requests';
 import UserForm from './components/createUserForm';
 
 class App extends Component {
@@ -7,6 +8,7 @@ class App extends Component {
 
   handleCreateNewUser = async (formData) => {
     const result = await addNewUser(formData);
+    console.log('result', result);
   };
 
   render() {

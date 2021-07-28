@@ -10,7 +10,7 @@ router.post('/api/users/new', async (req, res) => {
 
   try {
     const newUserResult = await newUser.save();
-    res.json({ success: true });
+    res.json(newUserResult);
   } catch (err) {
     res.json(err);
   }
