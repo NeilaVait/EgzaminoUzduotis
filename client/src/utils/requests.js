@@ -32,3 +32,17 @@ export const deleteUser = async (userId) => {
     console.log(err);
   }
 };
+
+export const updateCurrUser = async (userId, updData) => {
+  try {
+    const ats = await axios.put(`http://localhost:4000/api/users/update/${userId}`, {
+      userId,
+      updData,
+    });
+    if (ats.data) {
+      return ats.data;
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};

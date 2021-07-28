@@ -1,6 +1,6 @@
 import './App.css';
 import React, { Component } from 'react';
-import { addNewUser, getAllUsers, deleteUser } from './utils/requests';
+import { addNewUser, getAllUsers, deleteUser, updateCurrUser } from './utils/requests';
 import UserForm from './components/createUserForm';
 import UsersList from './components/usersList';
 
@@ -9,8 +9,11 @@ class App extends Component {
     users: [],
   };
 
-  updateUser = async (dataForUpd) => {
-    console.log(dataForUpd);
+  updateUser = async (userId, dataForUpd) => {
+    console.log(userId);
+    const result = await updateCurrUser(userId, dataForUpd);
+    console.log('upd result', result);
+    result && this.getUsersAndSetState();
   };
 
   handleDeleteUser = async (userId) => {

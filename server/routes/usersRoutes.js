@@ -37,4 +37,17 @@ router.delete('/api/users/delete/:userId', async (req, res) => {
   }
 });
 
+// upd user
+router.put('/api/users/update/:userId', async (req, res) => {
+  const userId = req.params.userId;
+  const updData = req.body.updData;
+
+  try {
+    const user = await User.findByIdAndUpdate(userId, updData);
+    res.json(user);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

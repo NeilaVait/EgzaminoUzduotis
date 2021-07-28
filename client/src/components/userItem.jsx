@@ -10,7 +10,7 @@ class UserItem extends Component {
   }
 
   editUser = (dataForUpd) => {
-    if (this.state.editOn) this.props.updateUser(dataForUpd);
+    if (this.state.editOn) this.props.updateUser(this.props.user._id, dataForUpd);
     this.setState({ editOn: !this.state.editOn });
   };
 
