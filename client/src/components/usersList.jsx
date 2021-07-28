@@ -2,15 +2,11 @@ import React, { Component } from 'react';
 import UserItem from './userItem';
 
 class UsersList extends Component {
-  constructor(props) {
-    super();
-    this.state = {};
-  }
   render() {
     return (
       <div className="list-container">
         <h4 className="list-title">Esami vartotojai</h4>
-        <ul className="product-list d-flex flex-wrap">
+        <ul className="user-list">
           {!this.props.users.length ? (
             <h5>Nėra pridėtų vartotojų.</h5>
           ) : (

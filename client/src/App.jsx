@@ -5,9 +5,12 @@ import UserForm from './components/createUserForm';
 import UsersList from './components/usersList';
 
 class App extends Component {
-  state = {
-    users: [],
-  };
+  constructor(props) {
+    super();
+    this.state = {
+      users: [],
+    };
+  }
 
   updateUser = async (userId, dataForUpd) => {
     console.log(userId);

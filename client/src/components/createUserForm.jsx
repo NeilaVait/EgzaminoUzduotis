@@ -30,8 +30,9 @@ class UserForm extends Component {
       email: '',
       password: '',
     };
+    const errors = '';
 
-    this.setState({ formData: clearedFormData });
+    this.setState({ formData: clearedFormData, errors });
   };
 
   handleLocalSubmit = async (e) => {
@@ -119,7 +120,7 @@ class UserForm extends Component {
             </div>
           )}
 
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-info">
             {this.props.user ? 'Išsaugoti' : 'Sukurti'}
           </button>
         </form>
