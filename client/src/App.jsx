@@ -4,11 +4,16 @@ import UserForm from './components/createUserForm';
 
 class App extends Component {
   state = {};
+
+  handleCreateNewUser = async (formData) => {
+    const result = await addNewUser(formData);
+  };
+
   render() {
     return (
       <div className="App">
         <div className="flex-container">
-          <UserForm />
+          <UserForm handleCreateNewUser={this.handleCreateNewUser} />
         </div>
       </div>
     );

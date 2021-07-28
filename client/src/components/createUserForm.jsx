@@ -34,7 +34,8 @@ class UserForm extends Component {
       email,
       password,
     };
-    console.log('datatosend', dataToSend);
+    // console.log('datatosend', dataToSend);
+    this.props.handleCreateNewUser(dataToSend);
     this.clearInputs();
   };
 
