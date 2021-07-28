@@ -12,9 +12,15 @@ class UserItem extends Component {
       <div className="users-container">
         <div className="card">
           <div className="card-body">
-            <h5 className="card-title">{u.username}</h5>
+            <p className="card-title">
+              Vartotojo vardas <strong>{u.username}</strong>
+            </p>
             <p className="card-text">{u.age}</p>
             <p className="card-text">{u.email}</p>
+            <div className="btn-container">
+              <button className="btn btn-primary">Edit</button>
+              <button className="btn btn-danger">Delete</button>
+            </div>
           </div>
         </div>
       </div>

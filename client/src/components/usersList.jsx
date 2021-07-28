@@ -9,6 +9,7 @@ class UsersList extends Component {
   render() {
     return (
       <div className="list-container">
+        <h4 className="list-title">Esami vartotojai</h4>
         <ul className="product-list d-flex flex-wrap">
           {!this.props.users.length ? (
             <h2>No users added yet.</h2>

@@ -1,3 +1,30 @@
 .App {
   background-color: rgb(85, 85, 85);
+  padding-top: 50px;
+  color: white;
+}
+
+.flex-container {
+  display: flex;
+  width: 1200px;
+  margin: 0 auto;
+  gap: 1em;
+}
+
+.card {
+  width: 350px;
+  color: #333;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-title {
+  margin-left: 40px;
+}
+
+.product-list {
+  gap: 1em;
 }

@@ -49,6 +49,7 @@ class UserForm extends Component {
 
     return (
       <div className="user-form-container w-50">
+        <h4>Sukurti naują vartotoją</h4>
         <form autoComplete="off" onSubmit={this.handleLocalSubmit}>
           <div className="form-group">
             <input
@@ -92,7 +93,7 @@ class UserForm extends Component {
           </div>
 
           <button type="submit" className="btn btn-primary">
-            Sukurti vartotoją
+            Sukurti
           </button>
         </form>
       </div>
