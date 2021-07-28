@@ -24,10 +24,10 @@ class UserItem extends Component {
           ) : (
             <div className="card-body">
               <p className="card-title">
-                Vartotojo vardas <strong>{u.username}</strong>
+                Vartotojo vardas: <strong>{u.username}</strong>
               </p>
-              <p className="card-text">{u.age}</p>
-              <p className="card-text">{u.email}</p>
+              <p className="card-text">Amžius: {u.age}</p>
+              <p className="card-text">El. paštas: {u.email}</p>
               <div className="btn-container">
                 <button onClick={this.editUser} className="btn btn-primary">
                   Redaguoti

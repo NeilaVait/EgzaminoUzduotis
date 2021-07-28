@@ -64,7 +64,7 @@ class UserForm extends Component {
     const { formData: f } = this.state;
 
     return (
-      <div className="user-form-container w-50">
+      <div className={this.props.user ? 'user-form-container w-100' : 'user-form-container w-50'}>
         {this.props.user ? '' : <h4>Sukurti naują vartotoją</h4>}
 
         <form autoComplete="off" onSubmit={this.handleLocalSubmit}>

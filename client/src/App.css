@@ -12,6 +12,7 @@
 }
 
 .card {
+  padding: 20px;
   width: 350px;
   color: #333;
 }
@@ -27,4 +28,8 @@
 
 .product-list {
   gap: 1em;
+}
+
+.btn-container {
+  margin-top: 50px;
 }
