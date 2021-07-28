@@ -1,5 +1,6 @@
 .App {
   background-color: rgb(85, 85, 85);
+  min-height: 600px;
   padding-top: 50px;
   color: white;
 }
