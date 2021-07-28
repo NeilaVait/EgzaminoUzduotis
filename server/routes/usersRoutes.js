@@ -12,7 +12,17 @@ router.post('/api/users/new', async (req, res) => {
     const newUserResult = await newUser.save();
     res.json(newUserResult);
   } catch (err) {
-    res.json(err);
+    res.status(500).json(err);
+  }
+});
+
+// get all users
+router.get('/api/users', async (req, res) => {
+  try {
+    const allUsers = await User.find();
+    res.json(allUsers);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 

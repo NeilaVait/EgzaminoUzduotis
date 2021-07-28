@@ -10,3 +10,14 @@ export const addNewUser = async (dataToSend) => {
     return err;
   }
 };
+
+export const getAllUsers = async () => {
+  try {
+    const ats = await axios.get('http://localhost:4000/api/users');
+    if (Array.isArray(ats.data) && ats.data.length) {
+      return ats.data;
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
