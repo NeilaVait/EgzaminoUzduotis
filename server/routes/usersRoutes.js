@@ -44,7 +44,7 @@ router.put('/api/users/update/:userId', async (req, res) => {
 
   try {
     const user = await User.findByIdAndUpdate(userId, updData);
-    res.json(user);
+    res.json({ success: true });
   } catch (err) {
     res.status(500).json(err);
   }

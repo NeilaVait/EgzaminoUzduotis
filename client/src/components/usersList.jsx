@@ -12,7 +12,7 @@ class UsersList extends Component {
         <h4 className="list-title">Esami vartotojai</h4>
         <ul className="product-list d-flex flex-wrap">
           {!this.props.users.length ? (
-            <h2>No users added yet.</h2>
+            <h5>Nėra pridėtų vartotojų.</h5>
           ) : (
             <React.Fragment>
               {this.props.users.map((u) => (

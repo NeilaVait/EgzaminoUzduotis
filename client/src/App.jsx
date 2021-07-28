@@ -31,8 +31,12 @@ class App extends Component {
   };
 
   handleCreateNewUser = async (formData) => {
-    const result = await addNewUser(formData);
-    result && this.getUsersAndSetState();
+    const success = await addNewUser(formData);
+    if (success === true) {
+      this.getUsersAndSetState();
+      return true;
+    }
+    return success;
   };
 
   render() {
@@ -40,7 +44,11 @@ class App extends Component {
       <div className="App">
         <div className="flex-container">
           <UserForm handleCreateNewUser={this.handleCreateNewUser} />
-          <UsersList updateUser={this.updateUser} handleDeleteUser={this.handleDeleteUser} users={this.state.users} />
+          <UsersList
+            updateUser={this.updateUser}
+            handleDeleteUser={this.handleDeleteUser}
+            users={this.state.users || []}
+          />
         </div>
       </div>
     );

@@ -10,6 +10,7 @@ class UserForm extends Component {
         email: '',
         password: '',
       },
+      errors: '',
     };
   }
 
@@ -33,7 +34,7 @@ class UserForm extends Component {
     this.setState({ formData: clearedFormData });
   };
 
-  handleLocalSubmit = (e) => {
+  handleLocalSubmit = async (e) => {
     e.preventDefault();
     console.log('click');
     const { username, age, email, password } = this.state.formData;
@@ -50,9 +51,9 @@ class UserForm extends Component {
       return;
     }
 
-    // console.log('datatosend', dataToSend);
-    const result = this.props.handleCreateNewUser(dataToSend);
-    result && this.clearInputs();
+    const successOrErr = await this.props.handleCreateNewUser(dataToSend);
+    if (successOrErr === true) return this.clearInputs();
+    this.setState({ errors: successOrErr });
   };
 
   handleChange = (e) => {
@@ -66,6 +67,11 @@ class UserForm extends Component {
     return (
       <div className={this.props.user ? 'user-form-container w-100' : 'user-form-container w-50'}>
         {this.props.user ? '' : <h4>Sukurti naują vartotoją</h4>}
+        {this.state.errors && (
+          <div className="alert alert-danger" role="alert">
+            Užpildykite visus įvesties duomenis
+          </div>
+        )}
 
         <form autoComplete="off" onSubmit={this.handleLocalSubmit}>
           <div className="form-group">
