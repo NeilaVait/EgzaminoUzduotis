@@ -19,7 +19,9 @@ class UserItem extends Component {
             <p className="card-text">{u.email}</p>
             <div className="btn-container">
               <button className="btn btn-primary">Edit</button>
-              <button className="btn btn-danger">Delete</button>
+              <button onClick={() => this.props.handleDeleteUser(u._id)} className="btn btn-danger">
+                Delete
+              </button>
             </div>
           </div>
         </div>

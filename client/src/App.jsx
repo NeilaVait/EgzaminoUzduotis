@@ -1,12 +1,17 @@
 import './App.css';
 import React, { Component } from 'react';
-import { addNewUser, getAllUsers } from './utils/requests';
+import { addNewUser, getAllUsers, deleteUser } from './utils/requests';
 import UserForm from './components/createUserForm';
 import UsersList from './components/usersList';
 
 class App extends Component {
   state = {
     users: [],
+  };
+
+  handleDeleteUser = async (userId) => {
+    const result = await deleteUser(userId);
+    result && this.getUsersAndSetState();
   };
 
   componentDidMount() {
@@ -20,7 +25,7 @@ class App extends Component {
 
   handleCreateNewUser = async (formData) => {
     const result = await addNewUser(formData);
-    console.log('result', result);
+    result && this.getUsersAndSetState();
   };
 
   render() {
@@ -28,7 +33,7 @@ class App extends Component {
       <div className="App">
         <div className="flex-container">
           <UserForm handleCreateNewUser={this.handleCreateNewUser} />
-          <UsersList users={this.state.users} />
+          <UsersList handleDeleteUser={this.handleDeleteUser} users={this.state.users} />
         </div>
       </div>
     );

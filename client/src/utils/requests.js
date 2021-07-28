@@ -21,3 +21,14 @@ export const getAllUsers = async () => {
     console.log(err);
   }
 };
+
+export const deleteUser = async (userId) => {
+  try {
+    const ats = await axios.delete(`http://localhost:4000/api/users/delete/${userId}`);
+    if (ats.data) {
+      return ats.data;
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};

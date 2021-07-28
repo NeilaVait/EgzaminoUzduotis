@@ -5,3 +5,7 @@ POST http://localhost:4000/api/users/new
 ### get users
 
 GET http://localhost:4000/api/users
+
+### delete user 
+
+DELETE http://localhost:4000/api/users/delete/61010333f4c5cc282851cbb3

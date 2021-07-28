@@ -16,7 +16,7 @@ class UsersList extends Component {
           ) : (
             <React.Fragment>
               {this.props.users.map((u) => (
-                <UserItem key={u._id} user={u} />
+                <UserItem handleDeleteUser={this.props.handleDeleteUser} key={u._id} user={u} />
               ))}
             </React.Fragment>
           )}
