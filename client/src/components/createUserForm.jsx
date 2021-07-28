@@ -35,8 +35,8 @@ class UserForm extends Component {
       password,
     };
     // console.log('datatosend', dataToSend);
-    this.props.handleCreateNewUser(dataToSend);
-    this.clearInputs();
+    const result = this.props.handleCreateNewUser(dataToSend);
+    result && this.clearInputs();
   };
 
   handleChange = (e) => {
