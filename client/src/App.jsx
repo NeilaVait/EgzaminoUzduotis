@@ -2,6 +2,7 @@ import './App.css';
 import React, { Component } from 'react';
 import { addNewUser, getAllUsers } from './utils/requests';
 import UserForm from './components/createUserForm';
+import UsersList from './components/usersList';
 
 class App extends Component {
   state = {
@@ -14,7 +15,7 @@ class App extends Component {
 
   getUsersAndSetState = async () => {
     const result = await getAllUsers();
-    console.log('allusers result', result);
+    this.setState({ users: result });
   };
 
   handleCreateNewUser = async (formData) => {
@@ -27,6 +28,7 @@ class App extends Component {
       <div className="App">
         <div className="flex-container">
           <UserForm handleCreateNewUser={this.handleCreateNewUser} />
+          <UsersList users={this.state.users} />
         </div>
       </div>
     );

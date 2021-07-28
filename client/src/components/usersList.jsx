@@ -10,12 +10,12 @@ class UsersList extends Component {
     return (
       <div className="list-container">
         <ul className="product-list d-flex flex-wrap">
-          {this.props.users.length ? (
-            <h2>No products or services added yet.</h2>
+          {!this.props.users.length ? (
+            <h2>No users added yet.</h2>
           ) : (
             <React.Fragment>
-              {this.props.products.map((p) => (
-                <UserItem />
+              {this.props.users.map((u) => (
+                <UserItem key={u._id} user={u} />
               ))}
             </React.Fragment>
           )}
