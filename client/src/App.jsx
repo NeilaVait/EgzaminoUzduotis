@@ -9,6 +9,10 @@ class App extends Component {
     users: [],
   };
 
+  updateUser = async (dataForUpd) => {
+    console.log(dataForUpd);
+  };
+
   handleDeleteUser = async (userId) => {
     const result = await deleteUser(userId);
     result && this.getUsersAndSetState();
@@ -33,7 +37,7 @@ class App extends Component {
       <div className="App">
         <div className="flex-container">
           <UserForm handleCreateNewUser={this.handleCreateNewUser} />
-          <UsersList handleDeleteUser={this.handleDeleteUser} users={this.state.users} />
+          <UsersList updateUser={this.updateUser} handleDeleteUser={this.handleDeleteUser} users={this.state.users} />
         </div>
       </div>
     );

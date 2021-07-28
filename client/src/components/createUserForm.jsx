@@ -13,6 +13,15 @@ class UserForm extends Component {
     };
   }
 
+  componentDidMount() {
+    this.props.user && this.propsToState();
+  }
+
+  propsToState = () => {
+    const formData = this.props.user;
+    this.setState({ formData });
+  };
+
   clearInputs = () => {
     const clearedFormData = {
       username: '',
@@ -34,6 +43,13 @@ class UserForm extends Component {
       email,
       password,
     };
+
+    if (this.props.user) {
+      console.log('cia editas');
+      this.props.editUser(dataToSend);
+      return;
+    }
+
     // console.log('datatosend', dataToSend);
     const result = this.props.handleCreateNewUser(dataToSend);
     result && this.clearInputs();
@@ -49,7 +65,8 @@ class UserForm extends Component {
 
     return (
       <div className="user-form-container w-50">
-        <h4>Sukurti naują vartotoją</h4>
+        {this.props.user ? '' : <h4>Sukurti naują vartotoją</h4>}
+
         <form autoComplete="off" onSubmit={this.handleLocalSubmit}>
           <div className="form-group">
             <input
@@ -81,19 +98,23 @@ class UserForm extends Component {
               placeholder="El. pašto adresas"
             />
           </div>
-          <div className="form-group">
-            <input
-              value={f.password}
-              onChange={this.handleChange}
-              name="password"
-              type="password"
-              className="form-control"
-              placeholder="Slaptažodis"
-            />
-          </div>
+          {this.props.user ? (
+            ''
+          ) : (
+            <div className="form-group">
+              <input
+                value={f.password}
+                onChange={this.handleChange}
+                name="password"
+                type="password"
+                className="form-control"
+                placeholder="Slaptažodis"
+              />
+            </div>
+          )}
 
           <button type="submit" className="btn btn-primary">
-            Sukurti
+            {this.props.user ? 'Išsaugoti' : 'Sukurti'}
           </button>
         </form>
       </div>
