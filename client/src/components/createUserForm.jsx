@@ -37,7 +37,6 @@ class UserForm extends Component {
 
   handleLocalSubmit = async (e) => {
     e.preventDefault();
-    console.log('click');
     const { username, age, email, password } = this.state.formData;
     const dataToSend = {
       username,
@@ -47,7 +46,6 @@ class UserForm extends Component {
     };
 
     if (this.props.user) {
-      console.log('cia editas');
       this.props.editUser(dataToSend);
       return;
     }

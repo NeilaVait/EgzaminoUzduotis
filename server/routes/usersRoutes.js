@@ -5,7 +5,6 @@ const router = express.Router();
 // add new user
 router.post('/api/users/new', async (req, res) => {
   const newUserData = req.body;
-  console.log(newUserData);
   const newUser = new User(req.body);
 
   try {
